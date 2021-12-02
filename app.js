@@ -13,8 +13,7 @@ const connection = mysql.createConnection({
     database : 'ecom',
     port: 3308
 
-});
-
+}); 
 connection.connect((err)=> {
     if (err) {
         return console.error('error' + err.message)
@@ -23,6 +22,10 @@ connection.connect((err)=> {
     console.log('Connected to the MYSQL Server. ');
 });
 
+app.post('/register.html', (req,res) => {
+    const fname = req.body.fname;
+    console.log('From registration')
+}) 
 
 app.listen(port, () => {
     console.log(`Server Running on port ${port}`);
