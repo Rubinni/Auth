@@ -1,6 +1,6 @@
 const express = require('express');
 // const connection = require('connect.js')
-const port = 3306;
+const port = 5000;
 const app = express();
 const mysql = require('mysql');
 
@@ -10,7 +10,8 @@ const connection = mysql.createConnection({
     host : 'localhost',
     user : 'root',
     password : '',
-    database : 'ecom'
+    database : 'ecom',
+    port: 3308
 
 });
 
