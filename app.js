@@ -1,32 +1,28 @@
 const express = require('express');
-// const connection = require('connect.js')
-const port = 5000;
 const app = express();
-const mysql = require('mysql');
+const usersRouter = require('./routes/users');
+const port = 3000;
 
-app.use(express.static('public'));
+app.set('view engine', 'ejs')
 
-const connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'ecom',
-    port: 3308
+// const router = express.Router();
+// const db = require('./database')
 
-}); 
-connection.connect((err)=> {
-    if (err) {
-        return console.error('error' + err.message)
-    } 
 
-    console.log('Connected to the MYSQL Server. ');
-});
+// app.use(express.static('public'));
 
-app.post('/register.html', (req,res) => {
-    const fname = req.body.fname;
-    console.log('From registration')
-}) 
+// router.post('/form', (req,res,next) => {
+//     res.render('users')
+// });
+
+// router.post('/creat', (res,req,next) => {
+
+// });
+
+app.use('users', usersRouter);
 
 app.listen(port, () => {
     console.log(`Server Running on port ${port}`);
 });
+
+
